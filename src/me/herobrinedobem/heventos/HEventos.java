@@ -32,7 +32,7 @@ import net.sacredlabyrinth.phaed.simpleclans.SimpleClans;
  */
 public class HEventos extends JavaPlugin {
 
-	private final List<EventoBaseAPI> externalEventos = new ArrayList<>();
+	private List<EventoBaseAPI> externalEventos = new ArrayList<>();
 	private EventosController eventosController;
 	private Database databaseManager;
 	private Economy economy = null;
@@ -165,7 +165,7 @@ public class HEventos extends JavaPlugin {
 	 * Metodo que ira carregar o banco de dados do plugin.
 	 */
 	private void loadDatabase() {
-		if (this.getConfig().getBoolean("MySQL.Ativado")) {
+		if (this.getConfig().getBoolean("MySQL.Ativado") == true) {
 			databaseManager = new Database(DatabaseType.MYSQL, this.getConfig().getString("MySQL.Usuario"),
 					this.getConfig().getString("MySQL.Senha"), this.getConfig().getString("MySQL.Database"),
 					this.getConfig().getString("MySQL.Host"));
